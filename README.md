@@ -1,7 +1,8 @@
 # Catalog
 
-## Overview
+[ ![Download](https://api.bintray.com/packages/mcumings/catalog/catalog/images/download.svg) ](https://bintray.com/mcumings/catalog/catalog/_latestVersion)
 
+## Overview
 
 Catalog is a gradle plugin for Android that records logs when running Espresso tests.
 It will run automatically with `connected{Variant}AndroidTest` tasks and print the LogCat into `app/build/outputs/androidTest-results/`:
