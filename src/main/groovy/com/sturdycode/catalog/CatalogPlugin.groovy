@@ -36,8 +36,9 @@ class CatalogPlugin implements Plugin<Project> {
                 printerTask.logCatRecorderGroup = recorderGroup
                 printerTask.group = 'Verification'
                 printerTask.description = "Print logcat for ${variant.name} variant."
-                printerTask.outputDir = project.file("$project.buildDir/outputs/androidTest-results")
+                printerTask.outputDir = project.file("$project.buildDir/outputs/androidTest-results/logcat")
                 printerTask.dependsOn connectedTask
+                printerTask.outputs.upToDateWhen { false }
 
                 connectedTask.doFirst {
                     recorderGroup.attach()

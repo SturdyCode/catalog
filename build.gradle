@@ -12,7 +12,7 @@ repositories {
 }
 
 group = 'com.sturdycode'
-version = '1.0.0'
+version = '1.0.1'
 description = 'A gradle plugin for Android that records logcat when running connected tests'
 
 ext {
