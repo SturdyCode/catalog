@@ -1,2 +1,2 @@
 rootProject.name = 'catalog'
-
+enableFeaturePreview('STABLE_PUBLISHING')

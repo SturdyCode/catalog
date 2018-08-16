@@ -1,15 +1,22 @@
-apply plugin: 'groovy'
-apply plugin: 'bintray-release'
-
-buildscript {
-    repositories { jcenter() }
-    dependencies {
-        classpath 'com.novoda:bintray-release:0.3.4'
-    }
+plugins {
+    id "groovy"
+    id "maven-publish"
+    id "com.jfrog.bintray" version "1.8.4"
 }
 
 repositories {
     jcenter()
+
+    // Useful for testing packaging prior to publishing a release:
+    mavenLocal()
+}
+
+group = 'com.sturdycode'
+version = '1.0.0'
+description = 'A gradle plugin for Android that records logcat when running connected tests'
+
+ext {
+    githubRoot = "https://github.com/SturdyCode/catalog"
 }
 
 dependencies {
@@ -22,12 +29,55 @@ dependencies {
     testCompile 'joda-time:joda-time:2.10'
 }
 
-publish {
-    userOrg = 'sturdycode'
-    groupId = 'com.sturdycode'
-    artifactId = 'catalog'
-    version = '1.0.0-SNAPSHOT'
-    description = 'A gradle plugin for Android that records logcat when running conected tests'
-    website = 'https://github.com/SturdyCode/catalog'
-    uploadName = 'Catalog'
+task sourceJar(type: Jar) {
+    from sourceSets.main.allGroovy
+    classifier "sources"
+}
+
+publishing {
+    publications {
+        catalog(MavenPublication) {
+            from components.java
+            artifact sourceJar
+            pom {
+                name = project.name
+                description = project.description
+                url = project.ext.githubRoot
+                licenses {
+                    license {
+                        name = "The MIT License"
+                        url = "${project.ext.githubRoot}/blob/master/LICENSE".toString()
+                    }
+                }
+                scm {
+                    connection = "scm:git:${project.ext.githubRoot}.git".toString()
+                    developerConnection = 'scm:git:git@github.com:SturdyCode/catalog.git'
+                    url = project.ext.githubRoot
+                }
+            }
+        }
+    }
+}
+
+bintray {
+    user = project.findProperty("bintrayUser") ?: "unknown-bintrayUser"
+    key = project.findProperty("bintrayApiKey") ?: "unknown-bintrayApiKey"
+    override = true
+    publications = [ 'catalog' ]
+    pkg {
+        repo = project.name
+        name = project.name
+        desc = 'A gradle plugin for Android that records logcat output when running connected tests'
+        licenses = [ 'MIT' ]
+        vcsUrl = "${project.ext.githubRoot}.git".toString()
+        githubRepo = 'SturdyCode/catalog'
+        githubReleaseNotesFile = 'README.md'
+        websiteUrl = project.ext.githubRoot
+        issueTrackerUrl = "${project.ext.githubRoot}/issues".toString()
+        publish = true
+        version {
+            name = project.version
+            released = new Date()
+        }
+    }
 }
