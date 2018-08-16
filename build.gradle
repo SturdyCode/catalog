@@ -19,6 +19,7 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
     testCompile 'com.google.truth:truth:0.28'
+    testCompile 'joda-time:joda-time:2.10'
 }
 
 publish {
