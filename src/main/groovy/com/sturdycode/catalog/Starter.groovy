@@ -1,6 +1,5 @@
 package com.sturdycode.catalog
 
-
 class Starter {
     String className, testName
 

@@ -17,10 +17,10 @@ class AdbBridgeManager implements Closeable, AndroidDebugBridge.IDeviceChangeLis
     private List<Device> devices = new ArrayList<>()
 
     @Override
-    public void close() {
+    void close() {
         if (adb != null) {
-            AndroidDebugBridge.removeDeviceChangeListener(this);
-            AndroidDebugBridge.terminate();
+            AndroidDebugBridge.removeDeviceChangeListener(this)
+            AndroidDebugBridge.terminate()
             adb = null
         }
     }
@@ -43,7 +43,7 @@ class AdbBridgeManager implements Closeable, AndroidDebugBridge.IDeviceChangeLis
     void initializeAdbExe(File adbExeFile) {
         if (adbExe == null) {
             LOGGER.debug("Initialized ADB executable to: ${adbExeFile}")
-            adbExe = adbExeFile;
+            adbExe = adbExeFile
         }
     }
 
@@ -56,7 +56,7 @@ class AdbBridgeManager implements Closeable, AndroidDebugBridge.IDeviceChangeLis
                 }
             }
             devices
-        });
+        })
         return recorderGroup
     }
 
@@ -65,12 +65,12 @@ class AdbBridgeManager implements Closeable, AndroidDebugBridge.IDeviceChangeLis
         if (adbExe == null) {
             throw new GradleException("ADB executable location has not been initialized")
         }
-        AndroidDebugBridge.initIfNeeded(false);
-        adb = AndroidDebugBridge.createBridge(adbExe.getAbsolutePath(), false);
+        AndroidDebugBridge.initIfNeeded(false)
+        adb = AndroidDebugBridge.createBridge(adbExe.getAbsolutePath(), false)
         if (adb == null) {
-            throw new GradleException("Failed to obtain ADB bridge");
+            throw new GradleException("Failed to obtain ADB bridge")
         }
-        AndroidDebugBridge.addDeviceChangeListener(this);
+        AndroidDebugBridge.addDeviceChangeListener(this)
         if (adb.hasInitialDeviceList()) {
             runLogCat()
         } else {

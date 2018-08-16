@@ -15,7 +15,7 @@ class LogCatRecorder implements LogCatListener {
     private int lastRecordedPid
     private int pid
     private List<LogCatMessage> recordedMessages
-    private SparseArray<Starter> recordedStarters;
+    private SparseArray<Starter> recordedStarters
 
     LogCatRecorder() {
         this.lastRecordedPid = -1
@@ -29,7 +29,7 @@ class LogCatRecorder implements LogCatListener {
         logCatMessages.each { LogCatMessage logCatMessage ->
             if (pid == -1) {
                 Matcher match = MESSAGE_START.matcher(logCatMessage.message)
-                if (match.matches() && TEST_RUNNER.equals(logCatMessage.tag)) {
+                if (match.matches() && TEST_RUNNER == logCatMessage.tag) {
                     pid = logCatMessage.pid
 
                     if (lastRecordedPid != pid) {

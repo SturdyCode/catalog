@@ -16,7 +16,7 @@ class LogCatRecorderTest {
     LogCatRecorder recorder
 
     @Before
-    public void setUp() throws Exception {
+    void setUp() throws Exception {
         recorder = new LogCatRecorder()
     }
 
@@ -27,7 +27,7 @@ class LogCatRecorderTest {
     }
 
     @Test
-    public void log_shouldNotRecordBeforeTestRunner() {
+    void log_shouldNotRecordBeforeTestRunner() {
         def message = newMessage("Romain", "Bonjour, comment vas-tu?")
         List<LogCatMessage> messages = Lists.newArrayList(message)
 
@@ -40,7 +40,7 @@ class LogCatRecorderTest {
     }
 
     @Test
-    public void log_shouldRecordSamePidAfterStart() {
+    void log_shouldRecordSamePidAfterStart() {
         def start = newMessage("TestRunner", "started: dumbTest(com.example.romainpiel.myapplication.MainActivityTest)", 1)
         def message = newMessage("Romain", "Bonjour, comment vas-tu?", 1)
         List<LogCatMessage> messages = Lists.newArrayList(start, message)
@@ -52,7 +52,7 @@ class LogCatRecorderTest {
     }
 
     @Test
-    public void log_shouldNotRecordDifferentPidAfterStart() {
+    void log_shouldNotRecordDifferentPidAfterStart() {
         def start = newMessage("TestRunner", "started: dumbTest(com.example.romainpiel.myapplication.MainActivityTest)", 1)
         def message = newMessage("Romain", "Bonjour, comment vas-tu?", 2)
         List<LogCatMessage> messages = Lists.newArrayList(start, message)
@@ -64,7 +64,7 @@ class LogCatRecorderTest {
     }
 
     @Test
-    public void log_shouldRecordOnlyLastTestRunnerPid() {
+    void log_shouldRecordOnlyLastTestRunnerPid() {
         def startTestPid1 = newMessage("TestRunner", "started: dumbTest(com.example.romainpiel.myapplication.MainActivityTest)", 1)
         def endTestPid1 = newMessage("TestRunner", "finished: dumbTest(com.example.romainpiel.myapplication.MainActivityTest)", 1)
         def startTestPid2 = newMessage("TestRunner", "started: dumbTest(com.bakery.CupcakeActivityTest)", 2)
@@ -77,7 +77,7 @@ class LogCatRecorderTest {
     }
 
     @Test
-    public void log_shouldRecordOneStarter() {
+    void log_shouldRecordOneStarter() {
         def message = newMessage("TestRunner", "started: dumbTest(com.example.romainpiel.myapplication.MainActivityTest)")
         List<LogCatMessage> messages = Lists.newArrayList(message)
 
@@ -91,7 +91,7 @@ class LogCatRecorderTest {
     }
 
     @Test
-    public void log_shouldRecordTwoStarters() {
+    void log_shouldRecordTwoStarters() {
         def startTest1 = newMessage("TestRunner", "started: dumbTest(com.example.romainpiel.myapplication.MainActivityTest)")
         def endTest1 = newMessage("TestRunner", "finished: dumbTest(com.example.romainpiel.myapplication.MainActivityTest)")
         def startTest2 = newMessage("TestRunner", "started: anotherTest(com.example.romainpiel.myapplication.MainActivityTest)")

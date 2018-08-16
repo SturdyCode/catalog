@@ -8,7 +8,7 @@ import org.gradle.api.Project
 
 class CatalogPlugin implements Plugin<Project> {
 
-    private static def adbBridge = new AdbBridgeManager();
+    private static def adbBridge = new AdbBridgeManager()
 
     @Override
     void apply(Project project) {
@@ -19,7 +19,8 @@ class CatalogPlugin implements Plugin<Project> {
         } else if (project != null && project.plugins.hasPlugin('com.android.test')) {
             applyAndroidProject(project, (DomainObjectCollection<BaseVariant>) project.android.applicationVariants)
         } else {
-            throw new UnsupportedOperationException('Catalog plugin Plugin requires the Android Application or Library plugin to be configured')
+            throw new UnsupportedOperationException(
+                    'Catalog plugin Plugin requires the Android Application, Library, or Test plugin to be configured')
         }
     }
 

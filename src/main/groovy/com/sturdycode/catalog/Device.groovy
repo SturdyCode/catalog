@@ -1,6 +1,6 @@
 package com.sturdycode.catalog
 
-import com.android.ddmlib.logcat.LogCatReceiverTask;
+import com.android.ddmlib.logcat.LogCatReceiverTask
 
 class Device {
     private String name;
@@ -20,7 +20,7 @@ class Device {
     }
 
     @Override
-    public String toString() {
+    String toString() {
         return getName()
     }
 

@@ -25,8 +25,8 @@ class LogCatPrinterTask extends DefaultTask {
             def cssInStream = getClass().getClassLoader().getResourceAsStream('logcat.css')
             def cssOutStream = new File(outputDir.absolutePath, 'logcat.css').newOutputStream()
             IOUtils.copy(cssInStream, cssOutStream)
-            cssInStream.close();
-            cssOutStream.close();
+            cssInStream.close()
+            cssOutStream.close()
             def device = recordedDevice.device
             def txtFileName = "logcat-${device.name.replace(' ', '_')}.txt"
             def txtFile = new File(outputDir.absolutePath, txtFileName)

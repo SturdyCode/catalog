@@ -17,13 +17,13 @@ import static com.google.common.truth.Truth.assertThat
 class LogCatPrinterTest {
 
     @Rule
-    public TemporaryFolder tmpFolder = new TemporaryFolder();
+    public TemporaryFolder tmpFolder = new TemporaryFolder()
 
-    File txtFile, htmlFile;
-    LogCatPrinter printer;
+    File txtFile, htmlFile
+    LogCatPrinter printer
 
     @Before
-    public void setUp() throws Exception {
+    void setUp() throws Exception {
         txtFile = tmpFolder.newFile()
         htmlFile = tmpFolder.newFile()
         printer = new LogCatPrinter(txtFile, htmlFile)
@@ -36,7 +36,7 @@ class LogCatPrinterTest {
     }
 
     @Test
-    public void print_emptyList_shouldNotPrintAnything() throws Exception {
+    void print_emptyList_shouldNotPrintAnything() throws Exception {
         def records = new Records(new ArrayList<LogCatMessage>(), new SparseArray<Starter>())
 
         printer.print(records)
@@ -57,7 +57,7 @@ class LogCatPrinterTest {
     }
 
     @Test
-    public void print_starter_shouldPrintHeader() {
+    void print_starter_shouldPrintHeader() {
         def startMessage = newMessage("TestRunner", "started: dumbTest(com.example.romainpiel.myapplication.MainActivityTest)")
         def messages = Lists.newArrayList(startMessage)
         def starters = new SparseArray()
@@ -86,7 +86,7 @@ class LogCatPrinterTest {
     }
 
     @Test
-    public void print_nonStarter_shouldPrintLine() {
+    void print_nonStarter_shouldPrintLine() {
         def message = newMessage("Cupcake", "I'm the sweetest!")
         def messages = Lists.newArrayList(message)
         def starters = new SparseArray()

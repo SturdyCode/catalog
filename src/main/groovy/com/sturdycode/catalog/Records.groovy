@@ -3,10 +3,9 @@ package com.sturdycode.catalog
 import com.android.ddmlib.logcat.LogCatMessage
 import com.android.utils.SparseArray
 
-
 class Records {
     private List<LogCatMessage> messages
-    private SparseArray<Starter> starters;
+    private SparseArray<Starter> starters
 
     Records(List<LogCatMessage> messages, SparseArray<Starter> starters) {
         this.messages = messages
