@@ -1,4 +1,4 @@
-package com.songkick.catalog
+package com.sturdycode.catalog
 
 import org.apache.commons.io.IOUtils
 import org.gradle.api.DefaultTask

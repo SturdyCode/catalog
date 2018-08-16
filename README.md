@@ -1,5 +1,8 @@
 # Catalog
 
+## Overview
+
+
 Catalog is a gradle plugin for Android that records logs when running Espresso tests.
 It will run automatically with `connected{Variant}AndroidTest` tasks and print the LogCat into `app/build/outputs/androidTest-results/`:
 
@@ -12,12 +15,12 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.songkick:catalog:0.1.1'
+        classpath 'com.sturdycode:catalog:0.1.1'
     }
 }
 
 apply plugin: 'com.android.application'
-apply plugin: 'com.songkick.catalog'
+apply plugin: 'com.sturdycode.catalog'
 ```
 
 ## Release
@@ -27,12 +30,20 @@ To release:
 ./gradlew clean build bintrayUpload -PbintrayUser=USERNAME -PbintrayKey=API_KEY -PdryRun=false
 ```
 
+## History
+
+Originally released by [songkick](https://github.com/SongKick/catalog), this library was
+[abandoned](https://github.com/songkick/catalog/blob/master/CONTRIBUTING.md).  We thank
+songkick for their open source contribution, making it possible to continue using their
+useful plugin.
+
 ## License
 
 ```
 The MIT License
 
 Copyright © 2016 Songkick
+Copyright © 2018 SturdyCode
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

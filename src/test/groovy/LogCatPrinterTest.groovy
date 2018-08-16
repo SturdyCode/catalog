@@ -3,9 +3,9 @@ import com.android.ddmlib.logcat.LogCatMessage
 import com.android.ddmlib.logcat.LogCatTimestamp
 import com.android.utils.SparseArray
 import com.google.common.collect.Lists
-import com.songkick.catalog.LogCatPrinter
-import com.songkick.catalog.Records
-import com.songkick.catalog.Starter
+import com.sturdycode.catalog.LogCatPrinter
+import com.sturdycode.catalog.Records
+import com.sturdycode.catalog.Starter
 import org.joda.time.DateTime
 import org.junit.Before
 import org.junit.Rule

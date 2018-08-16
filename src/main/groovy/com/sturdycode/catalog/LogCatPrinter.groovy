@@ -1,7 +1,8 @@
-package com.songkick.catalog
+package com.sturdycode.catalog
+
 import com.android.ddmlib.logcat.LogCatMessage
 
-import java.awt.Color
+import java.awt.*
 
 class LogCatPrinter {
 

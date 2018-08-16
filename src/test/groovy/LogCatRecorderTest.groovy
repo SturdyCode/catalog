@@ -2,7 +2,7 @@ import com.android.ddmlib.Log
 import com.android.ddmlib.logcat.LogCatMessage
 import com.android.ddmlib.logcat.LogCatTimestamp
 import com.google.common.collect.Lists
-import com.songkick.catalog.LogCatRecorder
+import com.sturdycode.catalog.LogCatRecorder
 import org.joda.time.DateTime
 import org.junit.Before
 import org.junit.Test

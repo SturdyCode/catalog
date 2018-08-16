@@ -1,4 +1,4 @@
-package com.songkick.catalog
+package com.sturdycode.catalog
 
 import org.slf4j.LoggerFactory
 

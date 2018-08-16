@@ -1,4 +1,4 @@
-package com.songkick.catalog
+package com.sturdycode.catalog
 
 class LogCatRecorderGroup implements Closeable {
 

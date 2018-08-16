@@ -1,4 +1,4 @@
-package com.songkick.catalog
+package com.sturdycode.catalog
 
 import com.android.build.gradle.api.BaseVariant
 import org.gradle.api.DomainObjectCollection

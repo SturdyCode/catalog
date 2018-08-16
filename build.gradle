@@ -22,11 +22,11 @@ dependencies {
 }
 
 publish {
-    userOrg = 'songkick'
-    groupId = 'com.songkick'
+    userOrg = 'sturdycode'
+    groupId = 'com.sturdycode'
     artifactId = 'catalog'
-    version = '0.2.0-SNAPSHOT'
-    description = 'A gradle plugin for Android that records logs when running UI tests'
-    website = 'https://github.com/Songkick/catalog'
+    version = '1.0.0-SNAPSHOT'
+    description = 'A gradle plugin for Android that records logcat when running conected tests'
+    website = 'https://github.com/SturdyCode/catalog'
     uploadName = 'Catalog'
 }

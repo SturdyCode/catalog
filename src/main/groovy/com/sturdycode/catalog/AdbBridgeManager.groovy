@@ -1,4 +1,4 @@
-package com.songkick.catalog
+package com.sturdycode.catalog
 
 import com.android.ddmlib.AndroidDebugBridge
 import com.android.ddmlib.IDevice
