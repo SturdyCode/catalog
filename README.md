@@ -16,7 +16,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.sturdycode:catalog:1.0.0'
+        classpath 'com.sturdycode:catalog:1.0.1'
     }
 }
 
