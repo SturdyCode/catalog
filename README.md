@@ -16,7 +16,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.sturdycode:catalog:1.0.1'
+        classpath 'com.sturdycode:catalog:1.1.0'
     }
 }
 
@@ -44,7 +44,7 @@ useful plugin.
 The MIT License
 
 Copyright © 2016 Songkick
-Copyright © 2018 SturdyCode
+Copyright © 2018-2019 SturdyCode
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
